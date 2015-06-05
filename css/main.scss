@@ -99,10 +99,19 @@ h1, h2, h3, h4, h5, h6 {
             margin-bottom: .5rem;
         }
 
+        &-minute {
+            &:before {
+                content: ":";
+            }
+        }
+
         &-second {
             font-size: 3rem;
             font-weight: $base-font-weight-light;
             margin-left: .2rem;
+            &:before {
+                content: ":";
+            }
         }
     }
 
@@ -118,8 +127,10 @@ h1, h2, h3, h4, h5, h6 {
             opacity: 1;
         }
 
-        &-minute:before {
-            content: ":";
+        &-minute {
+            &:before {
+                content: ":";
+            }
         }
     }
 

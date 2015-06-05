@@ -511,10 +511,14 @@ h1, h2, h3, h4, h5, h6 {
       visibility: visible;
       opacity: 1;
       margin-bottom: .5rem; }
+    .time_countdown-minute:before {
+      content: ":"; }
     .time_countdown-second {
       font-size: 3rem;
       font-weight: 300;
       margin-left: .2rem; }
+      .time_countdown-second:before {
+        content: ":"; }
   .time_time {
     font-size: 2rem;
     font-weight: normal;
