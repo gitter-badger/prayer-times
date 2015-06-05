@@ -1,0 +1,30 @@
+$transition: .23s;
+$base-font-weight-light: 300;
+$base-font-weight-normal: 400;
+$base-font-weight-bold: 700;
+
+$times: "fajr", "sunrise", "jumuah", "asr", "maghrib", "isha";
+
+$colors: #cadaf4, #eabc96, #8dd6c3, #db8876, #74bddb, #43577e;
+
+$sizes: 8 3 2 1 1 1,
+2 8 3 2 1 1,
+1 2 8 3 2 1,
+1 1 2 8 3 2,
+1 1 1 2 8 3,
+1 1 1 2 3 8;
+
+@function tint($color, $percent) {
+    @return mix(white, $color, $percent);
+}
+
+@function shade($color, $percent) {
+    @return mix(black, $color, $percent);
+}
+
+$themes: nth($colors, 1) shade(nth($colors, 1), 10%) shade(nth($colors, 1), 20%) shade(nth($colors, 1), 30%) shade(nth($colors, 1), 40%) shade(nth($colors, 1), 50%),
+tint(nth($colors, 2), 20%) nth($colors, 2) shade(nth($colors, 2), 10%) shade(nth($colors, 2), 20%) shade(nth($colors, 2), 30%) shade(nth($colors, 2), 40%),
+tint(nth($colors, 3), 20%) tint(nth($colors, 3), 10%) nth($colors, 3) shade(nth($colors, 3), 10%) shade(nth($colors, 3), 20%) shade(nth($colors, 3), 30%),
+tint(nth($colors, 4), 45%) tint(nth($colors, 4), 30%) tint(nth($colors, 4), 15%) nth($colors, 4) shade(nth($colors, 4), 15%) shade(nth($colors, 4), 30%),
+tint(nth($colors, 5), 40%) tint(nth($colors, 5), 30%) tint(nth($colors, 5), 20%) tint(nth($colors, 5), 10%) nth($colors, 5) shade(nth($colors, 5), 10%),
+tint(nth($colors, 6), 50%) tint(nth($colors, 6), 40%) tint(nth($colors, 6), 30%) tint(nth($colors, 6), 20%) tint(nth($colors, 6), 10%) nth($colors, 6);
