@@ -424,8 +424,8 @@ h1, h2, h3, h4, h5, h6 {
           align-items: center;
   color: #fff;
   background-color: #999;
-  -webkit-transition: 0.23s;
-          transition: 0.23s; }
+  -webkit-transition: 0.32s;
+          transition: 0.32s; }
   .time-content {
     position: relative;
     width: 100%;
@@ -439,19 +439,20 @@ h1, h2, h3, h4, h5, h6 {
       font-size: 1.8rem;
       opacity: 1; }
   .time_countdown {
-    font-size: 6rem;
     font-weight: 700;
     letter-spacing: .1rem;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    -webkit-transition: 0.23s;
-            transition: 0.23s;
+    -webkit-transition: 0.32s;
+            transition: 0.32s;
+    font-size: 0;
+    height: 0;
     visibility: hidden;
-    opacity: 0;
-    height: 0; }
+    opacity: 0; }
     .time--active .time_countdown {
+      font-size: 6rem;
+      height: auto;
       visibility: visible;
       opacity: 1;
-      height: auto;
       margin-bottom: .5rem; }
     .time_countdown span {
       font-size: 3rem;
@@ -463,8 +464,8 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: .05rem;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     opacity: .8;
-    -webkit-transition: 0.23s;
-            transition: 0.23s; }
+    -webkit-transition: 0.32s;
+            transition: 0.32s; }
     .time--active .time_time {
       opacity: 1; }
   .time_icon {
@@ -474,8 +475,8 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-    -webkit-transition: 0.23s;
-            transition: 0.23s;
+    -webkit-transition: 0.32s;
+            transition: 0.32s;
     opacity: 0; }
     .time--active .time_icon {
       opacity: .5; }

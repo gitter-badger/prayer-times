@@ -50,19 +50,20 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     &_countdown {
-        font-size: 6rem;
         font-weight: $base-font-weight-bold;
         letter-spacing: .1rem;
         text-shadow: 0 1px 1px rgba(black, .2);
         transition: $transition;
+        font-size: 0;
+        height: 0;
         visibility: hidden;
         opacity: 0;
-        height: 0;
 
         .time--active & {
+            font-size: 6rem;
+            height: auto;
             visibility: visible;
             opacity: 1;
-            height: auto;
             margin-bottom: .5rem;
         }
 
