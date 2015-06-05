@@ -20,21 +20,53 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: $base-font-weight-normal;
 }
 
+@keyframes list-loading {
+    from {
+        background-color: rgba(white, 0);
+    }
+    to {
+        background-color: rgba(white, .5);
+    }
+}
+
 //////////////////////////////
 
 .time {
+    position: relative;
     min-height: 50px;
     display: flex;
     flex: 1 0 auto;
     align-items: center;
     color: #fff;
-    background-color: #999;
     transition: $transition;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    @for $i from 1 through length($times) {
+        &:nth-child(#{$i}) {
+            background-color: shade(#c0c0c0, $i * 4);
+            .times[data-time=""] &:before {
+                content: "";
+                animation: 1s #{$i / length($times)}s list-loading alternate infinite;
+            }
+        }
+    }
 
     &-content {
         position: relative;
         width: 100%;
         margin: 0 20px;
+        opacity: 0;
+
+        .times:not([data-time=""]) & {
+            opacity: 1;
+        }
     }
 
     &_name {
@@ -67,7 +99,7 @@ h1, h2, h3, h4, h5, h6 {
             margin-bottom: .5rem;
         }
 
-        span {
+        &-second {
             font-size: 3rem;
             font-weight: $base-font-weight-light;
             margin-left: .2rem;
@@ -84,6 +116,10 @@ h1, h2, h3, h4, h5, h6 {
 
         .time--active & {
             opacity: 1;
+        }
+
+        &-minute:before {
+            content: ":";
         }
     }
 
