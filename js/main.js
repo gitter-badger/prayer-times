@@ -21,7 +21,7 @@ function randomTime() {
         $selectedItem.addClass("time--active");
 
         $('.times').attr('data-time', $selectedItem.data('time'));
-    }, 2000);
+    }, 4000);
 }
 
 function getRandomInt() {

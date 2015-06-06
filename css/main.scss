@@ -154,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
 .times {
     //
     overflow: hidden;
-    border-radius: 3px 3px 0 0;
+    border-radius: $border-radius $border-radius 0 0;
     //
     position: fixed;
     bottom: $app-header-height;
@@ -181,14 +181,14 @@ h1, h2, h3, h4, h5, h6 {
 .settings {
     //
     overflow: hidden;
-    border-radius: 0 0 3px 3px;
+    border-radius: 0 0 $border-radius $border-radius;
     //
     z-index: 2;
     position: fixed;
-    top: 100vh;
+    top: 100%;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: $app-header-height;
     user-select: none;
     background-color: white;
     transition: $transition;
@@ -196,9 +196,11 @@ h1, h2, h3, h4, h5, h6 {
 
     &[data-panel-show="true"] {
         //
-        border-radius: 3px;
+        border-radius: $border-radius;
         //
-        transform: translateY(-100%);
+        transform: translateY(0);
+        top: 0;
+        height: 100vh;
     }
 
     &-header {

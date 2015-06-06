@@ -551,7 +551,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .times {
   overflow: hidden;
-  border-radius: 3px 3px 0 0;
+  border-radius: 5px 5px 0 0;
   position: fixed;
   bottom: 24px;
   top: 0;
@@ -789,13 +789,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .settings {
   overflow: hidden;
-  border-radius: 0 0 3px 3px;
+  border-radius: 0 0 5px 5px;
   z-index: 2;
   position: fixed;
-  top: 100vh;
+  top: 100%;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 24px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -807,10 +807,12 @@ h1, h2, h3, h4, h5, h6 {
       -ms-transform: translateY(-24px);
           transform: translateY(-24px); }
   .settings[data-panel-show="true"] {
-    border-radius: 3px;
-    -webkit-transform: translateY(-100%);
-        -ms-transform: translateY(-100%);
-            transform: translateY(-100%); }
+    border-radius: 5px;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    top: 0;
+    height: 100vh; }
   .settings-header {
     position: relative;
     -webkit-transition: 0.36s;
@@ -874,3 +876,4 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 1.4rem;
         display: block;
         width: 100%; }
+/*# sourceMappingURL=main.min.css.map */
