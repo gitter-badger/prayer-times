@@ -6,13 +6,14 @@ html {
     font-size: 10px;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: $base-font-weight-normal;
+    background-color: black;
 }
 
 .icon {
     display: inline-block;
     fill: currentColor;
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -139,6 +140,8 @@ h1, h2, h3, h4, h5, h6 {
         right: 0;
         top: 50%;
         transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
         transition: $transition;
         opacity: 0;
 
@@ -149,13 +152,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .times {
+    //
+    overflow: hidden;
+    border-radius: 3px 3px 0 0;
+    //
     position: fixed;
+    bottom: $app-header-height;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    width: 100vw;
     display: flex;
     flex-direction: column;
+    user-select: none;
 
     @for $i from 1 through length($times) {
         &[data-time="#{nth($times, $i)}"] {
@@ -164,6 +172,128 @@ h1, h2, h3, h4, h5, h6 {
                     flex: #{nth(nth($sizes, $i), $j)} 0 auto;
                     background-color: #{nth(nth($themes, $i), $j)};
                 }
+            }
+        }
+    }
+
+}
+
+.settings {
+    //
+    overflow: hidden;
+    border-radius: 0 0 3px 3px;
+    //
+    z-index: 2;
+    position: fixed;
+    top: 100vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+    background-color: white;
+    transition: $transition;
+    transform: translateY(-$app-header-height);
+
+    &[data-panel-show="true"] {
+        //
+        border-radius: 3px;
+        //
+        transform: translateY(-100%);
+    }
+
+    &-header {
+        position: relative;
+        transition: $transition;
+
+        .settings[data-panel-show="true"] & {
+            background-color: #ddd;
+        }
+    }
+
+    &-title {
+        text-align: center;
+        font-size: 1.2rem;
+        letter-spacing: .1rem;
+        height: $app-header-height;
+        line-height: $app-header-height;
+        transition: $transition;
+
+        .settings[data-panel-show="true"] & {
+            font-size: 1.6rem;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        &_global {
+            display: none;
+
+            .settings[data-panel-show="true"] & {
+                display: block;
+            }
+        }
+
+        &_selected {
+
+            .settings[data-panel-show="true"] & {
+                display: none;
+            }
+        }
+    }
+
+    &-btn {
+        z-index: 2;
+        position: absolute;
+        width: $app-header-height;
+        height: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .settings[data-panel-show="true"] & {
+            width: 40px;
+        }
+
+        &--setting {
+            right: 5px;
+
+            .settings[data-panel-show="true"] & {
+                display: none;
+            }
+        }
+
+        &--done {
+            right: 5px;
+            display: none;
+
+            .settings[data-panel-show="true"] & {
+                display: block;
+                right: 10px;
+            }
+        }
+
+        .icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            .settings[data-panel-show="true"] & {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+    }
+
+    &-content {
+        padding: 30px 15px;
+
+        div {
+            margin-bottom: 15px;
+
+            select {
+                font-size: 1.4rem;
+                display: block;
+                width: 100%;
             }
         }
     }
