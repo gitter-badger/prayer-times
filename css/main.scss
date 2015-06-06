@@ -152,10 +152,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .times {
-    //
-    overflow: hidden;
-    border-radius: $border-radius $border-radius 0 0;
-    //
     position: fixed;
     bottom: $app-header-height;
     top: 0;
@@ -164,6 +160,11 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     user-select: none;
+
+    html.home-screen & {
+        overflow: hidden;
+        border-radius: $border-radius $border-radius 0 0;
+    }
 
     @for $i from 1 through length($times) {
         &[data-time="#{nth($times, $i)}"] {
@@ -179,28 +180,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .settings {
-    //
-    overflow: hidden;
-    border-radius: 0 0 $border-radius $border-radius;
-    //
     z-index: 2;
     position: fixed;
     top: 100%;
     left: 0;
     width: 100vw;
-    height: $app-header-height;
+    height: 100vh;
     user-select: none;
     background-color: white;
     transition: $transition;
     transform: translateY(-$app-header-height);
 
+    html.home-screen & {
+        overflow: hidden;
+        border-radius: 0 0 $border-radius $border-radius;
+    }
+
     &[data-panel-show="true"] {
-        //
-        border-radius: $border-radius;
-        //
         transform: translateY(0);
         top: 0;
-        height: 100vh;
+
+        html.home-screen & {
+            border-radius: $border-radius;
+        }
     }
 
     &-header {
@@ -245,30 +247,28 @@ h1, h2, h3, h4, h5, h6 {
     &-btn {
         z-index: 2;
         position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
         width: $app-header-height;
         height: 100%;
-        top: 50%;
-        transform: translateY(-50%);
 
         .settings[data-panel-show="true"] & {
             width: 40px;
         }
 
         &--setting {
-            right: 5px;
-
             .settings[data-panel-show="true"] & {
                 display: none;
             }
         }
 
         &--done {
-            right: 5px;
+            right: 0;
             display: none;
 
             .settings[data-panel-show="true"] & {
                 display: block;
-                right: 10px;
             }
         }
 

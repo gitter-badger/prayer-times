@@ -550,8 +550,6 @@ h1, h2, h3, h4, h5, h6 {
       opacity: .5; }
 
 .times {
-  overflow: hidden;
-  border-radius: 5px 5px 0 0;
   position: fixed;
   bottom: 24px;
   top: 0;
@@ -570,6 +568,9 @@ h1, h2, h3, h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none; }
+  html.home-screen .times {
+    overflow: hidden;
+    border-radius: 5px 5px 0 0; }
   .times[data-time="fajr"] .time--fajr {
     -webkit-box-flex: 8;
     -webkit-flex: 8 0 auto;
@@ -788,14 +789,12 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #43577e; }
 
 .settings {
-  overflow: hidden;
-  border-radius: 0 0 5px 5px;
   z-index: 2;
   position: fixed;
   top: 100%;
   left: 0;
   width: 100vw;
-  height: 24px;
+  height: 100vh;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -806,13 +805,16 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-transform: translateY(-24px);
       -ms-transform: translateY(-24px);
           transform: translateY(-24px); }
+  html.home-screen .settings {
+    overflow: hidden;
+    border-radius: 0 0 5px 5px; }
   .settings[data-panel-show="true"] {
-    border-radius: 5px;
     -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
             transform: translateY(0);
-    top: 0;
-    height: 100vh; }
+    top: 0; }
+    html.home-screen .settings[data-panel-show="true"] {
+      border-radius: 5px; }
   .settings-header {
     position: relative;
     -webkit-transition: 0.36s;
@@ -840,24 +842,22 @@ h1, h2, h3, h4, h5, h6 {
   .settings-btn {
     z-index: 2;
     position: absolute;
-    width: 24px;
-    height: 100%;
     top: 50%;
+    right: 5px;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
-            transform: translateY(-50%); }
+            transform: translateY(-50%);
+    width: 24px;
+    height: 100%; }
     .settings[data-panel-show="true"] .settings-btn {
       width: 40px; }
-    .settings-btn--setting {
-      right: 5px; }
-      .settings[data-panel-show="true"] .settings-btn--setting {
-        display: none; }
+    .settings[data-panel-show="true"] .settings-btn--setting {
+      display: none; }
     .settings-btn--done {
-      right: 5px;
+      right: 0;
       display: none; }
       .settings[data-panel-show="true"] .settings-btn--done {
-        display: block;
-        right: 10px; }
+        display: block; }
     .settings-btn .icon {
       position: absolute;
       top: 50%;
